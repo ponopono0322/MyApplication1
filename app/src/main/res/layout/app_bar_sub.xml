@@ -24,12 +24,12 @@
     <include layout="@layout/content_sub" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab3"
+        android:id="@+id/fab2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_marginBottom="180dp"
-        android:layout_marginRight="@dimen/fab_margin_right"
+        android:layout_marginBottom="160dp"
+        android:layout_marginRight="15sp"
         android:src="@drawable/ic_filter_center_focus_black_24dp"
         android:visibility="invisible"
         app:backgroundTint="@color/fab3_color"
@@ -37,12 +37,12 @@
         app:pressedTranslationZ="12dp"/>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab2"
+        android:id="@+id/fab1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_marginBottom="100dp"
-        android:layout_marginRight="@dimen/fab_margin_right"
+        android:layout_marginRight="15sp"
         android:src="@drawable/ic_search_black_24dp"
         android:visibility="invisible"
         app:backgroundTint="@color/fab2_color"
@@ -54,10 +54,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_marginRight="@dimen/fab_margin_right"
-        android:layout_marginBottom="16dp"
-        app:src="@drawable/ic_add_black_24dp"
-        android:elevation="6dp"
-        app:pressedTranslationZ="12dp"/>
+        android:layout_margin="15sp"
+        android:backgroundTint="#9500ff"
+        android:src="@drawable/ic_add_black_24dp" />
 
 </android.support.design.widget.CoordinatorLayout>
