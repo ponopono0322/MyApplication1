@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:orientation="vertical"
         android:background="#B8860B">
 
     </LinearLayout>
@@ -19,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:orientation="vertical"
         android:background="#DAA520">
 
     </LinearLayout>
@@ -28,6 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:orientation="vertical"
         android:background="#006400">
 
     </LinearLayout>
