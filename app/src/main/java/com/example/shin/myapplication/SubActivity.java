@@ -14,9 +14,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Toast;
 
 public class SubActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,View.OnClickListener {
+
+    private Animation fab_open, fab_close;
+    private Boolean isFabOpen = false;
+    private FloatingActionButton fab, fab2, fab3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +32,16 @@ public class SubActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        fab_open = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_open);
+        fab_close = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_close);
+
+        fab = (FloatingActionButton)findViewById(R.id.fab);
+        fab2 = (FloatingActionButton)findViewById(R.id.fab2);
+        fab3 = (FloatingActionButton)findViewById(R.id.fab3);
+
+        fab.setOnClickListener(this);
+        fab2.setOnClickListener(this);
+        fab3.setOnClickListener(this);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -93,7 +102,7 @@ public class SubActivity extends AppCompatActivity
                 break;
         }
 
-        if(fragment != null) {
+        if (fragment != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_sub, fragment);
             ft.commit();
@@ -101,7 +110,6 @@ public class SubActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-
 
 
     }
@@ -115,5 +123,42 @@ public class SubActivity extends AppCompatActivity
         displaySelectedScreen(id);
 
         return true;
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        switch (id) {
+            case R.id.fab:
+                anim();
+                Toast.makeText(this, "Floating Action Button", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.fab2:
+                anim();
+                Toast.makeText(this, "Button1", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.fab3:
+                anim();
+                Toast.makeText(this, "Button2", Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
+
+    public void anim() {
+
+        if (isFabOpen) {
+            fab2.startAnimation(fab_close);
+            fab3.startAnimation(fab_close);
+            fab2.setClickable(false);
+            fab3.setClickable(false);
+            isFabOpen = false;
+        } else {
+            fab2.startAnimation(fab_open);
+            fab3.startAnimation(fab_open);
+            fab2.setClickable(true);
+            fab3.setClickable(true);
+            isFabOpen = true;
+        }
+
     }
 }

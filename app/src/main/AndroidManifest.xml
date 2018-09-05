@@ -19,7 +19,10 @@
         <activity
             android:name=".SubActivity"
             android:label="@string/title_activity_sub"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".InformationActivity1"/>
+        <activity android:name=".InformationActivity2"/>
+        <activity android:name=".InformationActivity3"/>
     </application>
 
 </manifest>
